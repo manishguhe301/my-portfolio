@@ -11,6 +11,7 @@ export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
 
+  // Validation logic
   if (!validateString(senderEmail, 500)) {
     return {
       error: "Invalid sender email",
@@ -22,9 +23,9 @@ export const sendEmail = async (formData: FormData) => {
     };
   }
 
-  let data;
   try {
-    data = await resend.emails.send({
+    // Sending the email
+    const data = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: "manishguhe301@gmail.com",
       subject: "Message from contact form",
@@ -34,13 +35,11 @@ export const sendEmail = async (formData: FormData) => {
         senderEmail: senderEmail,
       }),
     });
+
+    return { data };
   } catch (error: unknown) {
     return {
       error: getErrorMessage(error),
     };
   }
-
-  return {
-    data,
-  };
 };
