@@ -3,21 +3,9 @@
 import React from "react";
 import { Resend } from "resend";
 import ContactFormEmail from "@/email/contact-form-email";
-import { getErrorMessage, validateString } from "@/lib/utils"
+import { getErrorMessage, validateString } from "@/lib/utils";
 
-import { unstable_noStore as noStore } from "next/cache";
-
-export function getEnvVariable(name: string): string {
-  noStore();  // Prevents Next.js from caching this value
-  const variable = process.env[name];
-  if (!variable) {
-    throw new Error(`Missing environment variable: ${name}`);
-  }
-  return variable;
-}
-
-
-// const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
@@ -33,9 +21,6 @@ export const sendEmail = async (formData: FormData) => {
       error: "Invalid message",
     };
   }
-
-  const resendApiKey = getEnvVariable("RESEND_API_KEY");
-  const resend = new Resend(resendApiKey);
 
   let data;
   try {
