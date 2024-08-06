@@ -3,15 +3,26 @@
 import React from "react";
 import { Resend } from "resend";
 import ContactFormEmail from "@/email/contact-form-email";
-import { getErrorMessage, validateString } from "@/lib/utils";
+import { getErrorMessage, validateString } from "@/lib/utils"
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { unstable_noStore as noStore } from "next/cache";
+
+export function getEnvVariable(name: string): string {
+  noStore();  // Prevents Next.js from caching this value
+  const variable = process.env[name];
+  if (!variable) {
+    throw new Error(`Missing environment variable: ${name}`);
+  }
+  return variable;
+}
+
+
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
 
-  // Validation logic
   if (!validateString(senderEmail, 500)) {
     return {
       error: "Invalid sender email",
@@ -23,9 +34,12 @@ export const sendEmail = async (formData: FormData) => {
     };
   }
 
+  const resendApiKey = getEnvVariable("RESEND_API_KEY");
+  const resend = new Resend(resendApiKey);
+
+  let data;
   try {
-    // Sending the email
-    const data = await resend.emails.send({
+    data = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: "manishguhe301@gmail.com",
       subject: "Message from contact form",
@@ -35,11 +49,13 @@ export const sendEmail = async (formData: FormData) => {
         senderEmail: senderEmail,
       }),
     });
-
-    return { data };
   } catch (error: unknown) {
     return {
       error: getErrorMessage(error),
     };
   }
+
+  return {
+    data,
+  };
 };
