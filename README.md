@@ -18,4 +18,4 @@ A modern web application built with Next.js, React, and TypeScript, featuring se
 
 ## Live Demo
 
-Check out the live application: [Portfolio](manish-codes.vercel.app/)
+Check out the live application: [Portfolio](https://manish-codes.vercel.app/)
