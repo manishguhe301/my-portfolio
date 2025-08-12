@@ -75,7 +75,7 @@ export const experiencesData = [
     description:
       "At TheMoonDevs, I develop and optimize UIs with React.js and Next.js, handle API integration and automation, and ensure code quality through PR reviews.",
     icon: React.createElement(FaReact),
-    date: "Apr 2024 - present",
+    date: "Apr 2024 - Feb 2025",
   },
 ] as const;
 
