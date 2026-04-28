@@ -5,23 +5,24 @@ import crypto from '@/public/crypto.jpg';
 import disney from '@/public/disney.jpg';
 import movie from '@/public/movie.jpg';
 import jobFlowThumb from '@/public/jobFlowThumb.png';
-import { FaReact } from 'react-icons/fa';
-import { FaHtml5 } from 'react-icons/fa';
+import saasifyThumb from '@/public/saasify.png';
+import { FaGlobe, FaHtml5, FaReact, FaRobot, FaServer } from 'react-icons/fa';
 import { FaCss3 } from 'react-icons/fa6';
 import { IoLogoJavascript, IoMdNotifications } from 'react-icons/io';
-import { SiNextdotjs, SiReacthookform, SiTypescript } from 'react-icons/si';
-import { SiMui } from 'react-icons/si';
-import { SiStyledcomponents } from 'react-icons/si';
+import {
+  SiMui,
+  SiNextdotjs,
+  SiPrisma,
+  SiPrismic,
+  SiReacthookform,
+  SiRedux,
+  SiStyledcomponents,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 import { RiNextjsFill } from 'react-icons/ri';
-import { SiTailwindcss } from 'react-icons/si';
-import { SiRedux } from 'react-icons/si';
-import { SiPrismic } from 'react-icons/si';
-import { SiPrisma } from 'react-icons/si';
 import { AiOutlineApi } from 'react-icons/ai';
-import { FaServer } from 'react-icons/fa';
-import { FaGlobe } from 'react-icons/fa';
 import { GiCube } from 'react-icons/gi';
-import { FaRobot } from 'react-icons/fa';
 
 export const links = [
   {
@@ -116,13 +117,6 @@ export const educationsData = [
   },
 ];
 
-export type ProjectStatus =
-  | 'Completed'
-  | 'In Progress'
-  | 'Planned'
-  | 'On Hold'
-  | 'Private';
-
 export const projectsData = [
   {
     title: 'HireFlow',
@@ -136,46 +130,63 @@ export const projectsData = [
       'NextAuth.js',
       'Redux Toolkit',
       'Tailwind CSS',
-      'Zod',
+      'Tanstack Query',
+      'Recharts',
+      'Pusher',
     ],
-    link: 'https://jobflow-ten-sigma.vercel.app/',
+    link: 'https://hireflow-v2.vercel.app/',
     imageUrl: jobFlowThumb,
-    status: 'In Progress',
   },
   {
-    title: 'Disney+ Clone',
-    description:
-      'Developed a fully responsive Disney+ clone using React, Vite, Tailwind, Firebase, and Redux Toolkit, with secure authentication and enhanced user features.',
+    title: 'Saasify',
+    description: `A full-stack SaaS billing dashboard showcasing Stripe, webhooks, multi-tenancy, and near real-time updates — built to demonstrate advanced production-grade concepts.`,
     tags: [
-      'React',
-      'Vite',
-      'Tailwind',
-      'Firebase',
-      'Styled Components',
+      'Next.js',
+      'TypeScript',
+      'Prisma',
+      'MongoDB',
+      'NextAuth.js',
       'Redux Toolkit',
+      'Tailwind CSS',
+      'ShadCN UI',
+      'Tanstack Query',
+      'Stripe',
+      'Recharts',
     ],
-    link: 'https://hotstar-wine.vercel.app/',
-    imageUrl: disney,
-    status: 'Completed',
+    link: 'https://saasify-hq.vercel.app/',
+    imageUrl: saasifyThumb,
   },
-  {
-    title: 'Crypto-Currency App',
-    description:
-      'A demo app showing current statuses of various cryptocurrencies with a responsive design.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Material-UI'],
-    link: 'https://appcryptocurrency.netlify.app/',
-    imageUrl: crypto,
-    status: 'Completed',
-  },
-  {
-    title: 'Movie App',
-    description:
-      'A demo app allowing users to browse movies and TV series by categories such as Trending, Movies, and TV Series.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Material-UI'],
-    link: 'https://teal-toffee-10c53d.netlify.app/',
-    imageUrl: movie,
-    status: 'Completed',
-  },
+  // {
+  //   title: 'Disney+ Clone',
+  //   description:
+  //     'Developed a fully responsive Disney+ clone using React, Vite, Tailwind, Firebase, and Redux Toolkit, with secure authentication and enhanced user features.',
+  //   tags: [
+  //     'React',
+  //     'Vite',
+  //     'Tailwind',
+  //     'Firebase',
+  //     'Styled Components',
+  //     'Redux Toolkit',
+  //   ],
+  //   link: 'https://hotstar-wine.vercel.app/',
+  //   imageUrl: disney,
+  // },
+  // {
+  //   title: 'Crypto-Currency App',
+  //   description:
+  //     'A demo app showing current statuses of various cryptocurrencies with a responsive design.',
+  //   tags: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Material-UI'],
+  //   link: 'https://appcryptocurrency.netlify.app/',
+  //   imageUrl: crypto,
+  // },
+  // {
+  //   title: 'Movie App',
+  //   description:
+  //     'A demo app allowing users to browse movies and TV series by categories such as Trending, Movies, and TV Series.',
+  //   tags: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Material-UI'],
+  //   link: 'https://teal-toffee-10c53d.netlify.app/',
+  //   imageUrl: movie,
+  // },
 ] as const;
 
 export const skillsData = [
